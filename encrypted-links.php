@@ -107,7 +107,7 @@ function tfc_go_metabox_cb( $post ) {
     echo '<script type="text/html" id="tfc-go-row-template">' . tfc_go_render_row( '__INDEX__', '', '', false ) . '</script>';
     ?>
 
-```
+
 <script>
 (function(){
     const container = document.getElementById('tfc-go-links');
@@ -150,7 +150,7 @@ function tfc_go_metabox_cb( $post ) {
 })();
 </script>
 <?php
-```
+
 
 }
 
@@ -159,7 +159,7 @@ function tfc\_go\_render\_row( \$index, \$real = '', \$short = '', \$echo = true
 ob\_start();
 ?> <div class="tfc-go-row" style="border:1px solid #e2e8f0;padding:12px;margin-bottom:10px;border-radius:6px;"> <p><label for="tfc_go_real_url_<?php echo esc_attr( $index ); ?>"><strong><?php echo esc_html__( 'Ссылка №1 (реальная цель редиректа)', 'tfc-go-links' ); ?></strong></label></p> <input type="url" style="max-width:900px" class="widefat tfc-go-real" id="tfc_go_real_url_<?php echo esc_attr( $index ); ?>" name="tfc_go_real_urls[]" value="<?php echo esc_attr( $real ); ?>" placeholder="https://example.com/..." />
 
-```
+
     <p style="margin-top:12px"><label><strong><?php echo esc_html__( 'Ссылка №2 (короткая, для вставки)', 'tfc-go-links' ); ?></strong></label></p>
     <input type="url" style="max-width:900px" class="widefat tfc-go-short" readonly value="<?php echo esc_attr( $short ); ?>" />
 
@@ -174,7 +174,7 @@ ob\_start();
 $html = ob_get_clean();
 if ( $echo ) { echo $html; }
 return $html;
-```
+
 
 }
 
@@ -190,7 +190,7 @@ if ( ! current\_user\_can( 'edit\_post', \$post\_id ) ) {
 return;
 }
 
-```
+
 $real_urls = isset( $_POST['tfc_go_real_urls'] ) && is_array( $_POST['tfc_go_real_urls'] ) ? array_map( 'trim', (array) $_POST['tfc_go_real_urls'] ) : [];
 
 $clean = [];
@@ -218,9 +218,8 @@ foreach ( $clean as $real ) {
 }
 
 update_post_meta( $post_id, '_tfc_go_real_url', $clean[0] );
-```
+
 
 }
 add\_action( 'save\_post', 'tfc\_go\_save\_metabox' );
 
-// === Конец файла ===
